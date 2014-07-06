@@ -23,6 +23,8 @@ import mygame.states.TestAppState;
 public class Main extends SimpleApplication {
 
     AppState testAppSTate = new TestAppState();
+    PointLight light;
+    float angle = 0.0f;
     
     public static void main(String[] args) {
         Main app = new Main();
@@ -38,11 +40,10 @@ public class Main extends SimpleApplication {
         mat.setColor("Color", ColorRGBA.Blue);
         geom.setMaterial(mat);
         
-        PointLight light = new PointLight();
+        light = new PointLight();
         light.setColor(ColorRGBA.White);
-        light.setPosition(new Vector3f(10.0f, 5.0f, 30.0f));
+        light.setPosition(new Vector3f(10.0f, 5.0f, 15.0f));
         rootNode.addLight(light);
-
         
         this.getStateManager().attach(testAppSTate);
         testAppSTate.setEnabled(true);
@@ -54,6 +55,8 @@ public class Main extends SimpleApplication {
     public void simpleUpdate(float tpf) {
         //Spatial s = rootNode.getChild("Box");
         //s.rotate(0.1f*tpf, 0.1f*tpf, 0.1f*tpf);
+        angle += tpf/1.0f;
+        light.setPosition(new Vector3f(10.0f*(float)Math.cos(angle), 5.0f, 15.0f*(float)Math.sin(angle)));
     }
 
     @Override
