@@ -37,11 +37,6 @@ public class Main extends SimpleApplication {
         Material mat = new Material(assetManager, "Common/MatDefs/Misc/Unshaded.j3md");
         mat.setColor("Color", ColorRGBA.Blue);
         geom.setMaterial(mat);
-
-        //rootNode.attachChild(geom);
-        //Spatial model = getAssetManager().loadModel("Models/Building/Building.j3o");
-        //model.setMaterial(mat);
-        //rootNode.attachChild(model);
         
         PointLight light = new PointLight();
         light.setColor(ColorRGBA.White);
