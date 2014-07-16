@@ -165,7 +165,7 @@ public class TestAppState extends AbstractAppState implements ActionListener {
     app.getInputManager().addMapping("Up", new KeyTrigger(KeyInput.KEY_W));
     app.getInputManager().addMapping("Down", new KeyTrigger(KeyInput.KEY_S));
     app.getInputManager().addMapping("Jump", new KeyTrigger(KeyInput.KEY_SPACE));
-    app.getInputManager().addMapping("Fire", new MouseButtonTrigger(0));
+    app.getInputManager().addMapping("Fire", new MouseButtonTrigger(MouseInput.BUTTON_LEFT));
     app.getInputManager().addMapping("Thrust", new KeyTrigger(KeyInput.KEY_RETURN));
     app.getInputManager().addMapping("Float", new KeyTrigger(KeyInput.KEY_F));
 
