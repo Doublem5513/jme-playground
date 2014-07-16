@@ -8,17 +8,12 @@ import com.jme3.app.Application;
 import com.jme3.app.SimpleApplication;
 import com.jme3.app.state.AbstractAppState;
 import com.jme3.app.state.AppStateManager;
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-=======
->>>>>>> b791abf... Added collision logic
+
 import com.jme3.asset.plugins.ZipLocator;
 import com.jme3.bullet.BulletAppState;
 import com.jme3.bullet.control.CharacterControl;
 import com.jme3.bullet.control.RigidBodyControl;
 import com.jme3.input.KeyInput;
-<<<<<<< HEAD
 import com.jme3.input.MouseInput;
 import com.jme3.input.controls.ActionListener;
 import com.jme3.input.controls.KeyTrigger;
@@ -30,19 +25,19 @@ import com.jme3.material.Material;
 import com.jme3.math.ColorRGBA;
 import com.jme3.math.Vector3f;
 import com.jme3.scene.Geometry;
->>>>>>> df382a3... Updated .gitignore to exclude build
-=======
+
 import com.jme3.input.controls.ActionListener;
 import com.jme3.input.controls.KeyTrigger;
 import com.jme3.light.AmbientLight;
 import com.jme3.light.DirectionalLight;
 import com.jme3.math.ColorRGBA;
 import com.jme3.math.Vector3f;
->>>>>>> b791abf... Added collision logic
+
 import com.jme3.scene.Node;
 import com.jme3.scene.Spatial;
 import com.jme3.scene.shape.Box;
 import com.jme3.scene.shape.Sphere;
+import net.java.games.input.Component;
 
 /**
  *
@@ -53,40 +48,28 @@ public class TestAppState extends AbstractAppState implements ActionListener {
     private SimpleApplication app;
     
     private Spatial model;
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
     private Spatial town;
     private Spatial shuttle;
-=======
-    private Spatial town;
->>>>>>> b791abf... Added collision logic
-    
     private Spatial sceneModel;
     private BulletAppState bulletAppState;
     private RigidBodyControl landscape;
     private CharacterControl player;
     private Vector3f walkDirection = new Vector3f();
     private boolean left = false, right = false, up = false, down = false;
-<<<<<<< HEAD
+
     private boolean thruster = false;
     private boolean floating = false;
-=======
->>>>>>> b791abf... Added collision logic
-    
+
       //Temporary vectors used on each frame.
   //They here to avoid instanciating new vectors on each frame
   private Vector3f camDir = new Vector3f();
   private Vector3f camLeft = new Vector3f();
-<<<<<<< HEAD
+
   
   private final Vector3f gravity = new Vector3f(0.0f, -9.81f, 0.0f);
   private int count = 0;
   
   PointLight light = new PointLight();
->>>>>>> df382a3... Updated .gitignore to exclude build
-=======
->>>>>>> b791abf... Added collision logic
 
     @Override
     public void initialize(AppStateManager stateManager, Application app) {
@@ -153,20 +136,13 @@ public class TestAppState extends AbstractAppState implements ActionListener {
         town = app.getAssetManager().loadModel("main.scene");
         town.setLocalScale(0.5f);
         
-<<<<<<< HEAD
-<<<<<<< HEAD
-        rootNode.attachChild(model);
-=======
         //rootNode.attachChild(model);
         rootNode.attachChild(town);
         
         RigidBodyControl floorPhy = new RigidBodyControl(0.0f);
         town.addControl(floorPhy);
         bulletAppState.getPhysicsSpace().add(floorPhy);
-=======
-        //rootNode.attachChild(model);
-        rootNode.attachChild(town);
->>>>>>> b791abf... Added collision logic
+
     }
     
     private void setUpLight() {
@@ -189,18 +165,16 @@ public class TestAppState extends AbstractAppState implements ActionListener {
     app.getInputManager().addMapping("Up", new KeyTrigger(KeyInput.KEY_W));
     app.getInputManager().addMapping("Down", new KeyTrigger(KeyInput.KEY_S));
     app.getInputManager().addMapping("Jump", new KeyTrigger(KeyInput.KEY_SPACE));
-<<<<<<< HEAD
-    app.getInputManager().addMapping("Fire", new MouseButtonTrigger(MouseInput.BUTTON_LEFT));
+    app.getInputManager().addMapping("Fire", new MouseButtonTrigger(0));
     app.getInputManager().addMapping("Thrust", new KeyTrigger(KeyInput.KEY_RETURN));
     app.getInputManager().addMapping("Float", new KeyTrigger(KeyInput.KEY_F));
-=======
->>>>>>> b791abf... Added collision logic
+
     app.getInputManager().addListener(this, "Left");
     app.getInputManager().addListener(this, "Right");
     app.getInputManager().addListener(this, "Up");
     app.getInputManager().addListener(this, "Down");
     app.getInputManager().addListener(this, "Jump");
-<<<<<<< HEAD
+
     app.getInputManager().addListener(this, "Fire", "Thrust", "Float");
   }
 
@@ -266,12 +240,6 @@ public class TestAppState extends AbstractAppState implements ActionListener {
         light.setPosition(new Vector3f(10.0f, 5.0f, 15.0f));
         geom.addLight(light);
         app.getRootNode().addLight(light);
->>>>>>> df382a3... Updated .gitignore to exclude build
-=======
   }
 
-    public void onAction(String name, boolean isPressed, float tpf) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
->>>>>>> b791abf... Added collision logic
-    }
 }
