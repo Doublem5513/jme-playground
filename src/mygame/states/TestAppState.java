@@ -198,7 +198,7 @@ public class TestAppState extends AbstractAppState implements ActionListener {
     }
     
     private void fire(){
-        Sphere sphere = new Sphere(12, 12, 0.5f);
+        Sphere sphere = new Sphere(12, 12, 0.2f);
         Geometry geom = new Geometry("Sphere"+(count), sphere);
         count++;
         
@@ -209,11 +209,11 @@ public class TestAppState extends AbstractAppState implements ActionListener {
         
         geom.setLocalTranslation(app.getCamera().getLocation());
         
-        RigidBodyControl ballPhy = new RigidBodyControl(1.0f);
+        RigidBodyControl ballPhy = new RigidBodyControl(0.28f);
         geom.addControl(ballPhy);
         bulletAppState.getPhysicsSpace().add(geom);
         
-        ballPhy.setLinearVelocity(app.getCamera().getDirection().mult(25.0f));
+        ballPhy.setLinearVelocity(app.getCamera().getDirection().mult(15.0f));
        
         
     }
