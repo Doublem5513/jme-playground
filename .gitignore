@@ -57,3 +57,6 @@ TestResults/
 ehthumbs.db
 Icon?
 Thumbs.db
+build/
+dist/
+nbproject/
